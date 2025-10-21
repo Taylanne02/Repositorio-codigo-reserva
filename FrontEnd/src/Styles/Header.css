@@ -1,0 +1,116 @@
+/* --- Estilização do <header> (Contêiner Principal) --- */
+header {
+    /* Cor de fundo: Verde muito escuro/quase preto */
+    background-color: #17423e; 
+    
+    /* Layout Flex para alinhar Logo, SearchBar e Perfil em uma linha */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    
+    /* Distribui os itens: Logo à esquerda, Perfil à direita, SearchBar no meio */
+    justify-content: space-between;
+    
+    /* Espaçamento interno (padding) nas laterais */
+    padding: 10px 30px; 
+}
+
+/* --- Estilização do Logo e Título (BuscaMed) --- */
+/* A div que contém a imagem e o <h1> é o primeiro elemento dentro do <Link> */
+header a > div {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header img {
+    /* Garante que o ícone do logo tenha uma cor de contraste (verde-água) */
+    /* Para isso funcionar, seu ícone (SVG) deve suportar a cor aplicada via CSS */
+    color: #00bf77; 
+    width: 30px;
+    height: 30px;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 500;
+    color: white;
+    margin: 0 0 0 10px; /* Margem apenas à esquerda para separar da imagem */
+    white-space: nowrap; /* Impede que 'BuscaMed' quebre linha em telas menores */
+}
+
+header h1 span {
+    /* Cor verde-água da parte 'Med' */
+    color: #00bf77; 
+    font-weight: 700;
+}
+
+/* --- Estilização da Barra de Pesquisa (SearchBar) --- */
+/* Seleciona a div do SearchBar, que é o segundo item flex do <header> */
+header > div:nth-child(2) {
+    /* Faz a barra de pesquisa ocupar o máximo de espaço central */
+    flex-grow: 1; 
+    
+    /* Limita o tamanho máximo para que não fique gigante em telas muito largas */
+    max-width: 600px;
+    
+    /* Centraliza dentro do espaço que lhe foi dado */
+    margin: 0 50px; 
+    
+    /* A div do SearchBar é o contêiner branco da busca */
+    display: flex;
+    align-items: center;
+    
+    background-color: white;
+    border-radius: 25px;
+    height: 45px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estiliza o botão de pesquisa (com o ícone IoSearch) */
+header > div:nth-child(2) button {
+    /* Cor do ícone */
+    color: #a0a0a0; 
+    font-size: 22px;
+    background: transparent;
+    border: none;
+    padding: 0 10px 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Estiliza o input de texto */
+header > div:nth-child(2) input {
+    flex-grow: 1;
+    height: 100%;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    /* Alinha o placeholder */
+    text-align: left; 
+}
+
+/* --- Estilização do Botão de Perfil (ProfileButton) --- */
+/* Seleciona a div do ProfileButton, que é o terceiro item flex do <header> */
+header > div:nth-child(3) {
+    /* Tamanho do círculo externo */
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 50%;
+    
+    /* Centraliza o ícone interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Estiliza o ícone MdAccountCircle (o SVG) */
+header > div:nth-child(3) svg {
+    /* O ícone dentro do círculo branco deve ser cinza/escuro */
+    color: #424242; 
+    font-size: 30px; /* Tamanho do ícone dentro do círculo */
+}

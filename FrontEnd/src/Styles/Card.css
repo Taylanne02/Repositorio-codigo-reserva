@@ -1,0 +1,153 @@
+/* Container Principal */
+.card {
+    display: flex;
+    flex-direction: column;
+
+    /* Estilos de aparência para compactação */
+    background-color: white; /* Fundo branco como na imagem */
+    color: black;
+    border-radius: 8px; /* Borda suave */
+    border: 1px solid #ddd; /* Linha de borda sutil */
+    padding: 15px; /* Espaço interno para reduzir o tamanho */
+    gap: 10px; /* Espaço menor entre as seções (header, main, footer) */
+    max-width: 450px; /* Limita a largura para um visual de card */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* --- Cabeçalho --- */
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header p{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-header h1 {
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.card-header span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1em;
+    color: rgb(209, 209, 0);
+}
+/* Alvo para reduzir o tamanho dos ícones no header */
+.card-header span svg {
+    width: 25px; 
+    height: 25px;
+}
+
+/* --- Conteúdo Principal (Ajustes de Grid e Alinhamento) --- */
+.card-main {
+    display: grid;
+    /* Define duas colunas: a primeira (endereço/telefone) é flexível (1fr), 
+       a segunda (horário/essenciais) é automática (ajusta ao conteúdo) */
+    grid-template-columns: 1fr auto; 
+    /* Remove o grid-template-rows para se adaptar automaticamente ao conteúdo */
+    gap: 10px 15px; /* Espaçamento: Vertical (linhas) e Horizontal (colunas) */
+}
+
+/* Oculta o <span> que envolve h2/h3 para que eles se posicionem corretamente no Grid */
+.card-main > span {
+    display: contents; 
+}
+
+/* Alinhamento dos elementos internos (Endereço, Horário, Telefone) */
+.card-main h2, 
+.card-main h3 {
+    display: flex; 
+    align-items: center; /* ALINHAMENTO VERTICAL: Centraliza o ícone com o texto */
+    gap: 8px; /* Espaço entre ícone e texto */
+    margin: 0; /* Remove margens padrão para compactação */
+    font-size: 0.95em; 
+    font-weight: normal; 
+}
+
+/* Alvo para reduzir o tamanho dos ícones no main */
+.card-main svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Posicionamento dos elementos no Grid */
+.card-main > span:nth-child(1) { /* Endereço */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.card-main > span:nth-child(2) { /* Horário */
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end; /* Alinha o horário à direita */
+}
+.card-main > span:nth-child(3) { /* Telefone */
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+.essenciais { /* Ícones Essenciais */
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinha o grupo de ícones à direita */
+    gap: 12px; /* Espaço entre os ícones essenciais */
+}
+/* Alvo para reduzir o tamanho dos ícones essenciais */
+.essenciais svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Linha divisória */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 5px 0; 
+}
+
+/* --- Rodapé --- */
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espaço entre convênios e Preço Social */
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.card-footer ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+    align-items: center;
+    gap: 8px; /* Espaço menor entre os botões de convênio */
+}
+
+.card-footer ul li {
+    /* Estiliza os 'botões' de convênio */
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.card-footer h4 {
+    /* Estiliza o 'Preço Social' */
+    margin: 0;
+    padding: 4px 10px;
+    background-color: #4CAF50; /* Cor verde para destaque */
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}

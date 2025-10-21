@@ -1,0 +1,232 @@
+/*
+================================================
+ESTILOS GERAIS E LAYOUT PRINCIPAL (CARD-EXPANDIDO)
+================================================
+*/
+
+.card-expandido {
+    /* Estilos de Card */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+    
+    /* Layout principal: GRID */
+    display: grid;
+    /* Desktop: 1/3 para Imagem | 2/3 para Conteúdo */
+    grid-template-columns: 1fr 2fr; 
+    gap: 40px;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+/* Layout para Mobile/Tablet (Empilha as seções) */
+@media (max-width: 900px) {
+    .card-expandido {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+/* Linha divisória horizontal */
+.conteudo__divisor {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 25px 0;
+}
+
+
+/*
+================================================
+ESTILOS DO CARROSSEL (card-expandido__carrossel)
+================================================
+*/
+
+.card-expandido__carrossel {
+    /* Usa Flexbox para alinhar botões e imagem */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 100%;
+    min-height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrossel__imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0; 
+}
+
+.carrossel__button {
+    /* Posiciona os botões sobre a imagem */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 0;
+    transition: background 0.2s;
+}
+
+.carrossel__button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carrossel__button--prev { left: 0; }
+.carrossel__button--next { right: 0; }
+
+.carrossel__button:disabled {
+    background: rgba(0, 0, 0, 0.1);
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/*
+================================================
+ESTILOS DO CONTEÚDO (card-expandido__conteudo)
+================================================
+*/
+
+/* Cabeçalho (Nome e Nota) */
+.conteudo__cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.conteudo__cabecalho h1 {
+    font-size: 32px;
+    color: #333;
+    margin: 0;
+    font-weight: 700;
+}
+
+.conteudo__nota {
+    font-size: 20px; /* Ajuste o tamanho das estrelas */
+    margin-left: 20px;
+}
+
+/* Endereço */
+.conteudo__endereco {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.conteudo__endereco h2 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 0 8px;
+}
+
+.endereco__icone {
+    font-size: 14px;
+    color: #4CAF50; /* Cor primária */
+}
+
+/* Descrição */
+.conteudo__descricao {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/*
+--- Contatos (aside) ---
+*/
+.conteudo__contatos h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.conteudo__contatos ul {
+    list-style: none;
+    padding: 0;
+    /* Layout responsivo para os contatos em duas colunas */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 10px 20px;
+}
+
+.conteudo__contatos li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.conteudo__contatos li a:hover {
+    color: #4CAF50;
+}
+
+.conteudo__contatos li a svg {
+    margin-right: 8px;
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+/*
+--- Seções de Informações (Serviços/Convênios) ---
+*/
+.conteudo__secao h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.secao__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Layout de tags */
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Estilo para itens como tags (Serviços/Convênios) */
+.secao__item--tag {
+    background-color: #f0f0f0;
+    color: #444;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+.secao__item--tag:hover {
+    background-color: #e0e0e0;
+}
+
+/* Destaque para serviços essenciais ou disponíveis */
+.secao__item--disponivel {
+    background-color: #e6ffe6; /* Verde claro */
+    border: 1px solid #4CAF50;
+    color: #1b5e20; /* Verde escuro */
+}

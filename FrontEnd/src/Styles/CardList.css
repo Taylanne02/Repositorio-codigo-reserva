@@ -1,0 +1,25 @@
+ul {
+    /* 1. Remove os marcadores de lista padrão */
+    list-style: none;
+    /* 2. Remove o preenchimento e a margem padrão da lista */
+    padding: 0;
+    margin: 0 auto; /* Para centralizar a grade */
+    
+    /* 3. Define a lista como um contêiner de Grid */
+    display: grid;
+    
+    /* 4. Define as colunas do Grid para um layout responsivo */
+    /* Cria colunas de no mínimo 300px e no máximo 1 fração (1fr), 
+       e usa 'repeat(auto-fill, ...)' para ajustar o número de colunas 
+       automaticamente com base no espaço disponível. */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    
+    /* 5. Adiciona um espaçamento (gap) entre os itens de Grid */
+    gap: 20px; /* Ajuste este valor conforme necessário */
+    
+}
+
+ul li {
+    /* 7. Garante que cada item de lista preencha a célula do Grid */
+    display: block; 
+}
