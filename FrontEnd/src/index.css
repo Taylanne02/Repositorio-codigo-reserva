@@ -12,3 +12,22 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.top-bar-logo {
+  height: 40px;
+  margin-right: 15px;
+}
+
+.app-content {
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.top-bar-logo {
+  height: 40px; 
+  margin-right: 15px; 
+}
+
+
+
